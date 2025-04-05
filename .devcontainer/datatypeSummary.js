@@ -25,9 +25,24 @@ let my_Obj={
 }
 
 // Declaration of function
-const myFunction = function () {
-    console.log("Hello World !");
+const myFunction = function () { 
+// console.log("Hello World !");
     
 }
+// *********************************************
+let myYoutubeChannel = "VaibhavSrivastavaYT"
+let anothername = myYoutubeChannel
+anothername="harrypotterYt"
+// console.log(anothername);
 
-// ******************************************
+let userOne = {
+    email:"vaib715harry@gmail.com",
+    upi:"vaibhav@sbi"
+}
+
+let userTwo = userOne;
+userTwo.email="vaibhavsrivasatava7715@gmail.com"
+console.log(userTwo.email);
+console.log(userOne.email);
+
+
