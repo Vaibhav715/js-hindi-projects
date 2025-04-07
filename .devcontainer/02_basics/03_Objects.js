@@ -46,8 +46,14 @@ JsUser.greeting = function(){
 JsUser.greetingTwo = function(){
     console.log(`Hello JS user, ${this.name}`);
 }
+// JsUser.greeting() => Hello JS user(Answer)
+// console.log(JsUser.greeting);
+// console.log(JsUser.greeting());
+// console.log(JsUser.greetingTwo());
 
-console.log(JsUser.greeting);
-console.log(JsUser.greeting());
-console.log(JsUser.greetingTwo());
+// Console.log(jsUser.greeting())  
+// answer ( undefined ) ❌
+
+// jsUser.greeting() 
+// Answer ( "Hello js user")
 
