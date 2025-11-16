@@ -19,3 +19,18 @@ if (Object.keys(emptyObjesct).length === 0) {
 } else {
     console.log("Object is not empty");
 }
+
+// Nullish Coalescing Operator (??)
+const UserEmail = null;
+let val1;
+val1 = 5 ?? 10; // 5
+console.log(val1);
+
+val1 = null ?? "Vaibhav";
+console.log(val1); // "Vaibhav"
+
+val1 = undefined ?? "Sri";
+console.log(val1); // "Sri"
+
+val1 = "" ?? "Hello";
+console.log(val1); // ""
