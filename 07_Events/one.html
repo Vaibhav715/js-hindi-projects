@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // document.getElementById('owl').onclick = function(){
+    //     alert("You clicked on the owl image!");
+    // }
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //  console.log("clicked inside the ul");
+    // }, false);
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //  console.log("clicked on the owl image");
+    //  e.stopPropagation(); // This will prevent the event from bubbling up to the parent elements
+    // }, false);
+
+
+
+    // false case-  eventBubbling is a concept in JavaScript where an event starts from the target element and then propagates up through its ancestors in the DOM tree. When an event occurs on an element, it first triggers any event handlers attached to that element, and then it continues to propagate up to its parent elements, triggering any event handlers attached to those elements as well. This process continues until it reaches the root of the DOM tree. Event bubbling allows for efficient event handling, as you can attach a single event handler to a parent element and handle events for all of its child elements without needing to attach individual handlers to each child.
+
+
+
+
+
+    // true case- event capturing, also known as event trickling, is a concept in JavaScript where an event starts from the root of the DOM tree and propagates down to the target element. When an event occurs on an element, it first triggers any event handlers attached to the root element, and then it continues to propagate down through its descendants in the DOM tree, triggering any event handlers attached to those elements as well. This process continues until it reaches the target element. Event capturing allows for more control over the order of event handling, as you can specify whether an event should be captured during the capturing phase or handled during the bubbling phase.
+
+
+
+
+
+
+
+
+    // type, timestamp, target, preventDefault ,defaultPrevented, eventPhase, isTrusted, etc. are the properties of the event object that provide information about the event that occurred. The event object is passed as an argument to the event handler function when an event is triggered. These properties can be used to get details about the event, such as the type of event, the time it occurred, the target element that triggered the event, whether the default action was prevented, and more. This information can be useful for handling events and performing specific actions based on the event details.
+
+
+
+
+    // toElement, srcElement, currentTarget, clientX, clientY, pageX, pageY, screenX, screenY, etc. are additional properties of the event object that provide more specific information about the event.
+
+
+
+
+    // altkey, ctrlKey, shiftKey, keycode, charCode, key, etc. are properties of the event object that provide information about keyboard events. These properties can be used to determine if certain modifier keys (like Alt, Ctrl, Shift) were pressed during the event, as well as details about the specific key that was pressed (such as its code or character representation). This information can be useful for handling keyboard interactions in your web applications.
+
+
+
+
+
+    // attachEvent is an old method and not recommended to use in modern JavaScript. It was used in older versions of Internet Explorer to attach event handlers to elements. However, it has been deprecated and is not supported in modern browsers. Instead, you should use the addEventListener method, which is the standard way to attach event handlers in JavaScript. The addEventListener method provides better performance, more flexibility, and is supported across all modern browsers. Therefore, it is recommended to use addEventListener instead of attachEvent for handling events in modern JavaScript.
+
+
+
+
+
+    // jQuery way -.on() method is used to attach event handlers to elements in jQuery. It allows you to specify the event type and the function to be executed when the event occurs. The .on() method is a more flexible and powerful way to handle events compared to older methods like .click(), .mouseover(), etc. It can be used to attach event handlers to both existing and dynamically added elements, making it a preferred choice for handling events in jQuery.
+    // $('#owl').click(function(){
+    //     alert("You clicked on the owl image!");
+
+
+// document.getElementById('google').addEventListener('click', function(e){
+    // e.preventDefault(); // This will prevent the default action of the link, which is to navigate to the URL
+    // e.stopPropagation(); // This will prevent the event from bubbling up to the parent elements
+    // alert("You clicked on the Google link!");
+// }, false);
+
+
+
+
+  document.querySelector('#images').addEventListener('click', function(e){
+        // console.log(e.target.parentNode); // This will log the parent element of the clicked target
+
+        // let removeElement = e.target.parentNode; // This will store the parent element of the clicked target in a variable
+
+
+        // removeElement.remove(); // This will remove the parent element of the clicked target from the DOM
+
+
+        // removeElement.style.display = 'none'; // This will hide the parent element of the clicked target by setting its display property to 'none'
+
+
+        // removeElement.parentNode.removeChild(removeElement); // This will remove the parent element of the clicked target from the DOM using the parentNode property
+
+
+        // removeElement.parentNode.replaceChild(document.createTextNode('This image has been removed'), removeElement); // This will replace the parent element of the clicked target with a text node that says "This image has been removed"
+
+        console.log(e.target.tagName);
+
+        if(e.target.tagName === 'IMG'){
+            // e.target.style.border = '5px solid red'; // This will add a red border to the clicked image
+            console.log(e.target.id); // This will log the id of the clicked image;
+            
+            let removeit = e.target.parentNode; 
+            removeit.remove()
+        }
+        
+  }, false)
+   
+
+</script>
+</html>
