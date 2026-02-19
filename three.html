@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Events</title>
+</head>
+<body>
+    <h1>Chai aur JavaScript</h1>
+
+     <button id = "start">Start</button>
+    <button id = "stop">Stop</button>
+   
+
+    <script>
+    //   setInterval(function(){
+    //     console.log("Vaibhav is the best" , Date.now());
+    //    }, 2000)
+
+
+    // 
+    
+    document.querySelector('#start').addEventListener('click', function(){
+        const intervalId = setInterval(function(){
+            document.querySelector('h1').innerHTML = "Vaibhav is the best" + " " + Date.now();
+           }, 2000)
+
+           document.querySelector('#stop').addEventListener('click', function(){
+            clearInterval(intervalId);
+            document.querySelector('h1').innerHTML = "Stopped";
+            
+        })
+    })
+
+        
+    </script>
+</body>
+</html>
