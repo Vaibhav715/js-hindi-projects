@@ -1,0 +1,145 @@
+<!-- <!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="color: rgb(244, 240, 255); background-color: #212121;">
+ <p>0 UNSENT	Client has been created. open() not called yet.<br>
+1 OPENED open() has been called.<br>
+2 HEADERS_RECEIVED send() has been called, and headers and status are available.<br>
+3 LOADING Downloading; responseText holds partial data.<br>
+4 DONE The operation is complete.<br>   </p> 
+<style>.profile-card {
+  width: 250px;             /* Sets the width of the box */
+  border: 2px solid #333;   /* Creates the "box" outline */
+  padding: 20px;            /* Spaces the content inside */
+  text-align: center;       /* Centers the name and photo */
+  border-radius: 15px;      /* Rounds the corners */
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.1); /* Adds a subtle shadow */
+}
+
+.profile-card img {
+  width: 100%;              /* Makes image fit the box width */
+  height: auto;             /* Keeps the photo's proportions */
+  border-radius: 10px;      /* Rounds the photo corners */
+}
+</style>
+
+<div class="profile-card">
+  <img src="your-photo-url.jpg" alt="Profile Picture">
+  <h3>Jane Doe</h3>
+</div>
+</body>
+
+<script>
+    // const requestUrl = 'https://randomuser.me/api/';
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requestUrl)
+    xhr.onreadystatechange = function(){
+       console.log(xhr.readyState);
+       if(xhr.readyState === 4){
+        const data = JSON.parse(this.responseText);
+        console.log(data.followers);
+       }
+    }
+    
+    
+    xhr.send()
+</script>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* Center the card on the screen */
+        body {
+            background-color: #1a1a1a;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* The Main Box */
+        .card {
+            background-color: #2d2d2d;
+            width: 300px;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+            border: 1px solid #444;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: #007bff;
+        }
+
+        /* The Profile Photo */
+        #user-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #007bff;
+            margin-bottom: 15px;
+            object-fit: cover;
+            background-color: #444; /* Placeholder color while loading */
+        }
+
+        /* The Follower Count (h2) */
+        h2 {
+            margin: 10px 0;
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+
+        .follower-label {
+            color: #888;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <img id="user-photo" src="" alt="Loading...">
+        <p class="follower-label">GitHub Followers</p>
+        <h2 id="follower-count">0</h2>
+    </div>
+
+    <script>
+        const requestUrl = 'https://api.github.com/users/hiteshchoudhary';
+        const xhr = new XMLHttpRequest();
+        
+        xhr.open('GET', requestUrl);
+        
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState === 4 && xhr.status === 200){
+                const data = JSON.parse(this.responseText);
+                
+                // Update the Followers in h2
+                document.querySelector('#follower-count').innerHTML = data.followers;
+                
+                // Update the Photo in the img tag
+                document.querySelector('#user-photo').src = data.avatar_url;
+            }
+        }
+        
+        xhr.send();
+    </script>
+
+</body>
+</html>
